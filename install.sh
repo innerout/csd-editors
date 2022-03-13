@@ -1,7 +1,7 @@
 #!/bin/bash
 
 sudo -i
-apt install emacs unzip bear fuse clang python3-pip npm
+apt install emacs unzip bear fuse clang python3-pip npm ripgrep fd-find
 npm install -g yarn
 
 # We need this since debian use older versiosn that are not compatible with our configuration
