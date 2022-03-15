@@ -1,6 +1,12 @@
 #!/bin/bash
 
-sudo -i
+if [ "x$(id -u)" != x0 ]; then
+    echo "You might have to run it as root user."
+    echo "Please run it again with 'sudo'."
+    echo
+    exit
+fi
+
 apt install emacs unzip bear fuse clang gdb python3-pip npm ripgrep fd-find
 npm install -g yarn
 
