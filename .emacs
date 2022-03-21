@@ -87,9 +87,19 @@
   :ensure t
   :init (which-key-mode))
 
+
+;; Check this issue to support keycast with doom-modeline https://github.com/tarsius/keycast/issues/7
 (use-package keycast
   :ensure t
-  :init (keycast-mode))
+  :init (keycast-mode)
+  :config
+  (define-minor-mode keycast-mode
+    "Show current command and its key binding in the mode line (fix for use with doom-mode-line)."
+    :global t
+    (if keycast-mode
+        (add-hook 'pre-command-hook 'keycast--update t)
+      (remove-hook 'pre-command-hook 'keycast--update)))
+  (add-to-list 'global-mode-string '("" keycast-mode-line)))
 
 (use-package gcmh
   :ensure t
