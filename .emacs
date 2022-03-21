@@ -251,7 +251,9 @@
   :hook
   (c-mode . lsp)
   (c++-mode . lsp)
-  (lsp-mode . lsp-enable-which-key-integration))
+  (lsp-mode . lsp-enable-which-key-integration)
+  :config
+  (lsp-ensure-server 'clangd))
 
 (use-package lsp-ui
   :ensure t)
