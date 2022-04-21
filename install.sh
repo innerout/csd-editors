@@ -11,7 +11,7 @@ apt install emacs unzip bear fuse clang gdb python3-pip npm ripgrep fd-find ncdu
 npm install -g yarn -y
 
 # We need this since debian use older versions that are not compatible with our configuration
-wget https://github.com/neovim/neovim/releases/download/v0.6.1/nvim.appimage
+wget https://github.com/neovim/neovim/releases/download/v0.7.0/nvim.appimage
 chmod u+x nvim.appimage
 mv nvim.appimage /usr/bin/nvim
 chmod 755 /usr/bin/nvim
