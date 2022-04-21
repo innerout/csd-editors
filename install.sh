@@ -7,8 +7,8 @@ if [ "x$(id -u)" != x0 ]; then
     exit
 fi
 
-apt install emacs unzip bear fuse clang gdb python3-pip npm ripgrep fd-find
-npm install -g yarn
+apt install emacs unzip bear fuse clang gdb python3-pip npm ripgrep fd-find ncdu -y
+npm install -g yarn -y
 
 # We need this since debian use older versions that are not compatible with our configuration
 wget https://github.com/neovim/neovim/releases/download/v0.6.1/nvim.appimage
