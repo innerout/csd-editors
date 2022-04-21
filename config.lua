@@ -75,7 +75,8 @@ require("lvim.lsp.manager").setup("clangd")
 
 -- Additional Plugins
 lvim.plugins = {
-  {"rmagatti/goto-preview",
+{
+    "rmagatti/goto-preview",
     config = function()
       require('goto-preview').setup {
         width = 120; -- Width of the floating window
@@ -92,17 +93,19 @@ lvim.plugins = {
       }
     end
   },
-  {"ahmedkhalf/lsp-rooter.nvim",
+{
+    "ahmedkhalf/lsp-rooter.nvim",
     event = "BufRead",
     config = function()
       require("lsp-rooter").setup()
     end,
   },
-  {
+{
     "folke/trouble.nvim",
     cmd = "TroubleToggle",
   },
-  {"lukas-reineke/indent-blankline.nvim",
+{
+    "lukas-reineke/indent-blankline.nvim",
     event = "BufRead",
     setup = function()
       vim.g.indentLine_enabled = 1
@@ -111,6 +114,76 @@ lvim.plugins = {
       vim.g.indent_blankline_buftype_exclude = {"terminal"}
       vim.g.indent_blankline_show_trailing_blankline_indent = false
       vim.g.indent_blankline_show_first_indent_level = false
+    end
+  },
+{
+    "lukas-reineke/indent-blankline.nvim",
+    event = "BufRead",
+    setup = function()
+      vim.g.indentLine_enabled = 1
+      vim.g.indent_blankline_char = "|"
+      vim.g.indent_blankline_filetype_exclude = {"help", "terminal", "dashboard"}
+      vim.g.indent_blankline_buftype_exclude = {"terminal"}
+      vim.g.indent_blankline_show_trailing_blankline_indent = false
+      vim.g.indent_blankline_show_first_indent_level = false
+    end
+  },
+{
+    "ojroques/vim-oscyank"
+  },
+{
+    "ethanholz/nvim-lastplace",
+    event = "BufRead",
+    config = function()
+      require("nvim-lastplace").setup({
+        lastplace_ignore_buftype = { "quickfix", "nofile", "help" },
+        lastplace_ignore_filetype = {
+          "gitcommit", "gitrebase", "svn", "hgcommit",
+        },
+        lastplace_open_folds = true,
+      })
+    end,
+  },
+{
+    "romgrk/nvim-treesitter-context",
+    config = function()
+      require("treesitter-context").setup{
+        enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
+        throttle = true, -- Throttles plugin updates (may improve performance)
+        max_lines = 0, -- How many lines the window should span. Values <= 0 mean no limit.
+        patterns = { -- Match patterns for TS nodes. These get wrapped to match at word boundaries.
+          -- For all filetypes
+          -- Note that setting an entry here replaces all other patterns for this entry.
+          -- By setting the 'default' entry below, you can control which nodes you want to
+          -- appear in the context window.
+          default = {
+            'class',
+            'function',
+            'method',
+          },
+        },
+      }
+    end
+  },
+{
+    "p00f/nvim-ts-rainbow",
+    config = function ()
+      require("nvim-treesitter.configs").setup {
+        rainbow = {
+          enable = true,
+          extended_mode = false,
+          max_file_lines = nil,
+          colors = {
+            "#ff0000",
+            "#ffa500",
+            "#ffff00",
+            "#008000",
+            "#0000ff",
+            "#4b0082",
+            "#ee82ee",
+          },
+        },
+      }
     end
   },
 }
