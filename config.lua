@@ -75,7 +75,7 @@ require("lvim.lsp.manager").setup("clangd")
 
 -- Additional Plugins
 lvim.plugins = {
-{
+  {
     "rmagatti/goto-preview",
     config = function()
       require('goto-preview').setup {
@@ -93,45 +93,33 @@ lvim.plugins = {
       }
     end
   },
-{
+  {
     "ahmedkhalf/lsp-rooter.nvim",
     event = "BufRead",
     config = function()
       require("lsp-rooter").setup()
     end,
   },
-{
+  {
     "folke/trouble.nvim",
     cmd = "TroubleToggle",
   },
-{
+  {
     "lukas-reineke/indent-blankline.nvim",
     event = "BufRead",
     setup = function()
       vim.g.indentLine_enabled = 1
       vim.g.indent_blankline_char = "|"
-      vim.g.indent_blankline_filetype_exclude = {"help", "terminal", "dashboard"}
-      vim.g.indent_blankline_buftype_exclude = {"terminal"}
+      vim.g.indent_blankline_filetype_exclude = { "help", "terminal", "dashboard" }
+      vim.g.indent_blankline_buftype_exclude = { "terminal" }
       vim.g.indent_blankline_show_trailing_blankline_indent = false
       vim.g.indent_blankline_show_first_indent_level = false
     end
   },
-{
-    "lukas-reineke/indent-blankline.nvim",
-    event = "BufRead",
-    setup = function()
-      vim.g.indentLine_enabled = 1
-      vim.g.indent_blankline_char = "|"
-      vim.g.indent_blankline_filetype_exclude = {"help", "terminal", "dashboard"}
-      vim.g.indent_blankline_buftype_exclude = {"terminal"}
-      vim.g.indent_blankline_show_trailing_blankline_indent = false
-      vim.g.indent_blankline_show_first_indent_level = false
-    end
-  },
-{
+  {
     "ojroques/vim-oscyank"
   },
-{
+  {
     "ethanholz/nvim-lastplace",
     event = "BufRead",
     config = function()
@@ -144,10 +132,10 @@ lvim.plugins = {
       })
     end,
   },
-{
+  {
     "romgrk/nvim-treesitter-context",
     config = function()
-      require("treesitter-context").setup{
+      require("treesitter-context").setup {
         enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
         throttle = true, -- Throttles plugin updates (may improve performance)
         max_lines = 0, -- How many lines the window should span. Values <= 0 mean no limit.
@@ -165,9 +153,9 @@ lvim.plugins = {
       }
     end
   },
-{
+  {
     "p00f/nvim-ts-rainbow",
-    config = function ()
+    config = function()
       require("nvim-treesitter.configs").setup {
         rainbow = {
           enable = true,
