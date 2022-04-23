@@ -1,4 +1,5 @@
 #!/bin/bash
+set -xe
 
 if [ "x$(id -u)" != x0 ]; then
     echo "You might have to run it as root user."
